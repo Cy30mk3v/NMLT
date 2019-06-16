@@ -1,0 +1,4 @@
+﻿  Ex_4.cpp
+C:\Users\ThinkKING\source\repos\Project1\Ex_4.cpp(10,10): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\ThinkKING\source\repos\Project1\Ex_4.cpp(12,8): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+  Project1.vcxproj -> C:\Users\ThinkKING\source\repos\Project1\Debug\Project1.exe
