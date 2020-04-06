@@ -11,7 +11,7 @@ int main()
 	n1=n/100;
 	//Số hàng chục
 	n2=(n-(n1*100))/10;
-    //Số hàng đơn vị
+    	//Số hàng đơn vị
 	n3=(n-(n1*100)-(n2*10));
 	printf("%i\n", n1 + n2 + n3);
 }
