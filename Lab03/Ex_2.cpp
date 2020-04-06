@@ -11,14 +11,16 @@ int main()
 	for (int i = 0; i < n; i++)
 	{
 		int j = 0;
-		for (j; j < n - i -1; j++)
+		for (j; j < n - i -1; j++) //Ngược lại: for(int j=h-i-1;j>0;j--)
 		{
 			printf(" ");
 		}
-		for (j; j < n+1; j++)
+		for (j; j < n+1; j++)// Ngược lại: for(int k=2+i;k>0;k--)
 		{
 			printf("#");
 		}
 		printf("\n");
 	}
+	
+	
 }
