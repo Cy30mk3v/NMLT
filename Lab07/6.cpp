@@ -1,41 +1,78 @@
-﻿/*
-HỌ TÊN; VÕ TRẦN CHÍ HƯNG
-MSSV; 1753058
-*/
 
-#include <stdio.h>
+#include <cstdio>
+
+
+
 void get_array(int n, int A[]);
 void print_array(int n, int D[]);
-void add_array(int A[], int &a, int B[], int &b, int C[], int &c);
+void add_array(int A[], int& a, int B[], int& b, int C[], int& c);
+void print_arrayOnlyOdd(int n, int D[]);
+void print_arrayOnlyEven(int n, int D[]);
+void count(int& odd, int& even, int A[], int n);
 
-int main (void)
+
+int main(void)
 {
 	int a, b, c;
 	int A[100];
 	int B[100];
 	int C[100];
-	printf("Nhap so phan tu cua mang thu nhat: ");
-	scanf_s("%i", &b);
-	get_array(b, B);
-	print_array(b, B);
-	printf("Nhap so phan tu cua mang thu hai: ");
-	scanf_s("%i", &c);
-	get_array(c, C);
-	print_array(c, C);
-	add_array(A, a, B, b, C, c);
+	printf("Nhap so phan tu cua mang: ");
+	scanf("%i", &a);
+	get_array(a, A);
 	print_array(a, A);
+	int odd, even;
+	count(odd, even, A, a);
+	if (odd == 0 && even > 0) {
+
+		print_arrayOnlyEven(a, A);
+	}
+	if (even == 0 && odd > 0) {
+		print_arrayOnlyOdd(a, A);
+	}
+	if (even > 0 && odd > 0)
+	{
+		printf("\n");
+		for (int i = 0; i < a; i++) {
+			if (A[i] % 2 == 0) {
+				printf("%i", A[i]);
+			}
+		}
+		printf("|");
+		for (int i = 0; i < a; i++) {
+			if (A[i] % 2 != 0) {
+				printf("%i", A[i]);
+			}
+		}
+		printf("\n");
+	}
+	if (even + odd == 0) {
+		printf("\nMang rong|Mang rong\n");
+	}
+}
+
+
+void count(int& odd, int& even, int A[], int n) {
+	odd = even = 0;
+	for (int i = 0; i < n; i++)
+	{
+		if (A[i] % 2 == 0)
+			even++;
+		else
+			odd++;
+	}
 }
 void get_array(int n, int A[])
 {
-	while (n<1 || n>10)
+	while (n < 1 || n>10)
 	{
 		printf("So nhap vao da sai, hay nhap lai: ");
-		scanf_s("%i", &n);
+		scanf("%i", &n);
 	}
 	for (int i = 0; i < n; i++)
 	{
 		printf("Nhap a[%i]:", i);
-		scanf_s("%i", &A[i]);
+		scanf("%i", &A[i]);
 	}
 }
 
@@ -55,7 +92,41 @@ void print_array(int n, int D[])
 	printf("\n");
 }
 
-void add_array(int A[], int &a, int B[], int &b, int C[], int &c)
+void print_arrayOnlyEven(int n, int D[])
+{
+	if (n == 0)
+	{
+		printf("Mang rong");
+		return;
+	}
+	else
+	{
+		printf("\nMang rong|");
+			for (int i = 0; i < n - 1; i++)
+				printf("%i", D[i]);
+	}
+	printf("%i\n", D[n - 1]);
+	printf("\n");
+}
+
+void print_arrayOnlyOdd(int n, int D[])
+{
+	if (n == 0)
+	{
+		printf("Mang rong");
+		return;
+	}
+	else
+	{
+		printf("\n");
+		for (int i = 0; i < n - 1; i++)
+			printf("%i", D[i]);
+	}
+	printf("%i", D[n - 1]);
+	printf("|Mang rong\n");
+		printf("\n");
+}
+void add_array(int A[], int& a, int B[], int& b, int C[], int& c)
 {
 	int i;
 	a = 0;
